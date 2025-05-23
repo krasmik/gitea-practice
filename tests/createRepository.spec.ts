@@ -37,7 +37,7 @@ test.describe('Repository Creation', () => {
         await createRepoPage.verifyRepositoryCreated();
     });
 
-    test('2. Create private repository', async () => {
+    test('2. Create private repository', async ({ page }) => {
         await createRepoPage.openPage();
         await createRepoPage.enterRepositoryName('test-private');
         await createRepoPage.togglePrivateRepository(true);

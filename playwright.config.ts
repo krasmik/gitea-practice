@@ -31,7 +31,9 @@ export default defineConfig({
     baseURL: process.env.BASE_WEB_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
+    screenshot: 'on-first-failure',
+    // video: 'retain-on-failure'
   },
   timeout: 10000,
   /* Configure projects for major browsers */
