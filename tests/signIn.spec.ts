@@ -39,13 +39,27 @@ test.describe(('Sign In tests'), () => {
         await signInPage.openPage();
     })
 
+<<<<<<< Updated upstream
     test('Success Sign in with userName', async ({ page }) => {
         await signInPage.signInWithCredentials(users.testUser1.userName, users.testUser1.password);
+=======
+    test('C2 Success Sign in with userName', async ({ page }) => {
+
+        test.step('Sign in as a test user', async () => {
+            await signInPage.signInWithCredentials(users.testUser1.userName, users.testUser1.password);
+        })
+
+        // await signInPage.signInWithCredentials(users.testUser1.userName, users.testUser1.password);
+>>>>>>> Stashed changes
         await page.pause();
         await expect(page.locator('//span[@class="text truncated-item-container"]//span[@class="truncated-item-name"]')).toHaveText(users.testUser1.userName);
     })
 
+<<<<<<< Updated upstream
     test('Success Sign in with email', async ({ page }) => {
+=======
+    test('C1 Success Sign in with email', async ({ page }) => {
+>>>>>>> Stashed changes
         await signInPage.signInWithCredentials(users.testUser1.email, users.testUser1.password);
         await expect(page.locator('//span[@class="text truncated-item-container"]//span[@class="truncated-item-name"]')).toHaveText(users.testUser1.userName);
     })
