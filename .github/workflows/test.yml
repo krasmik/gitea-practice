@@ -1,7 +1,7 @@
 name: Run Playwright + Gitea in Docker
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   run-tests:
@@ -16,11 +16,11 @@ jobs:
 
       - name: Run Docker Compose (build & test)
         run: |
-          docker-compose up --abort-on-container-exit --remove-orphans --build
+          docker compose up --abort-on-container-exit --remove-orphans --build
 
       - name: Clean up containers
         run: |
-          docker-compose down --volumes --remove-orphans
+          docker compose down --volumes --remove-orphans
 
       - name: Upload Playwright report
         if: always() # run even if tests fail
