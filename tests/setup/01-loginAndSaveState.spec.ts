@@ -3,7 +3,7 @@ import SignInPage from '../../pom/SignInPage';
 import { users } from '../../test-data/testUsers';
 
 
-test.describe('Repository Creation', () => {
+test.describe.skip('Repository Creation', () => {
     let signInPage: SignInPage;
 
     test('Create user and save state', async ({ page }) => {

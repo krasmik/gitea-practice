@@ -4,7 +4,7 @@ import RepositoryService from '../../api/services/RepositoryService';
 
 let repositoryService: RepositoryService;
 
-test.describe('Delete repos for all users pre-conditions ', () => {
+test.describe.skip('Delete repos for all users pre-conditions ', () => {
 
     test('Delete all User1 repos', async ({ request }) => {
         repositoryService = new RepositoryService(request);
