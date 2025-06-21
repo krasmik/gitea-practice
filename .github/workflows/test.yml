@@ -15,17 +15,15 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Run Docker Compose (build & test)
-        env:
-          CI: true
         run: |
-          docker compose up --abort-on-container-exit --remove-orphans --build
+          docker compose -f docker-compose.yml -f docker-compose.override.yml up --abort-on-container-exit --remove-orphans --build
 
       - name: Clean up containers
         run: |
           docker compose down --volumes --remove-orphans
 
       - name: Upload Playwright report
-        if: always() # run even if tests fail
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
