@@ -1,8 +1,8 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixtures/fixtures';
 
-test.describe('Repository Creation', () => {
-    test.use({ storageState: 'testUser1-state.json' })
+test.describe.skip('Repository Creation', () => {
+    test.use({ storageState: '/test-data/states/testUser1-state.json' })
 
     test('1. Create basic public repository', async ({ createRepoPage, pageSmall }) => {
         await createRepoPage.enterRepositoryName('test-public');

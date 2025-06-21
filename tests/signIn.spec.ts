@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import SignInPage from '../pom/SignInPage';
+import SignInPage from '../pom/pages/SignInPage';
 import { users } from '../test-data/testUsers';
 
 // test('has title', async ({ page }) => {

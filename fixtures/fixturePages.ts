@@ -1,5 +1,5 @@
 import { test as base, Page } from '@playwright/test'
-import CreateRepositoryPage from '../pom/CreateRepositoryPage';
+import CreateRepositoryPage from '../pom/pages/CreateRepositoryPage';
 
 type Fixtures = {
     createRepoPage: CreateRepositoryPage;
