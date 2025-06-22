@@ -31,7 +31,7 @@ export default class RepositoryService {
     }
 
     async deleteRepo(token: string, repoName: string, ownerName: string) {
-        return await this.request.delete(`http://localhost:3000/api/v1/repos/${ownerName}/${repoName}`, {
+        return await this.request.delete(`/api/v1/repos/${ownerName}/${repoName}`, {
             headers: {
                 'Authorization': `token ${token}`
             }
