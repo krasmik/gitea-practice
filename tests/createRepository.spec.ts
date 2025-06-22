@@ -1,9 +1,7 @@
 import { test, expect, BrowserContext, Page } from '@playwright/test';
-import CreateRepositoryPage from '../pom/CreateRepositoryPage';
-import SignInPage from '../pom/SignInPage';
-import RegisterPage from '../pom/RegisterPage';
-import { users } from '../test-data/testUsers';
-
+import CreateRepositoryPage from '../pom/pages/CreateRepositoryPage';
+import SignInPage from '../pom/pages/SignInPage';
+import RegisterPage from '../pom/pages/RegisterPage';
 
 test.describe('Repository Creation', () => {
 
@@ -14,11 +12,7 @@ test.describe('Repository Creation', () => {
     let signInPage: SignInPage;
     let registerPage: RegisterPage;
 
-    test.use({ storageState: 'testUser1-state.json' })
-    const randomPrefix = Date.now();
-    const username = `QaAuto_user_${randomPrefix}`;
-    const email = `krasmik+QaAuto_user${randomPrefix}@qamadness.com`
-    const password = 'Password123!';
+    test.use({ storageState: 'test-data/states/testUser1-state.json' })
 
     test.beforeAll(async ({ browser }) => {
         context = await browser.newContext();
@@ -30,9 +24,6 @@ test.describe('Repository Creation', () => {
         await createRepoPage.openPage();
         await context.close()
         await page.close();
-        // await registerPage.openPage();
-        // await registerPage.registerUserWithCredentials(username, email, password);
-        // await expect(page.locator('//span[@class="text truncated-item-container"]//span[@class="truncated-item-name"]')).toHaveText(`QaAuto_user_${randomPrefix}`);
     })
     test.beforeEach(async ({ browser }) => {
         context = await browser.newContext();
@@ -41,9 +32,6 @@ test.describe('Repository Creation', () => {
         signInPage = new SignInPage(page);
         createRepoPage = new CreateRepositoryPage(page);
         registerPage = new RegisterPage(page);
-        // await signInPage.openPage();
-        // await signInPage.signInWithCredentials(username, password);
-        // await expect(page.locator('//span[@class="text truncated-item-container"]//span[@class="truncated-item-name"]')).toHaveText(username);
         await createRepoPage.openPage();
     });
 
