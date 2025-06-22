@@ -1,5 +1,4 @@
 import { chromium } from "@playwright/test";
-// import { test } from "allure-playwright";
 import { test } from "../fixtures/fixtureBrowserSize";
 
 test('Open page without fixture', async () => {

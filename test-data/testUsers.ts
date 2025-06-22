@@ -1,14 +1,16 @@
-export const users = {
-    testUser1: {
-        userName: 'QaAutoUser1',
-        email: 'krasmik+QaAutoUser1@qamadness.com',
-        password: 'Test1234',
-        apiKey: '34360e476b8e51f727e168981eac044dd7f03794'
-    },
-    randomUser1: {
-        userName: `QaAutoUser1-${Date.now()}`,
-        email: `krasmik+QaAutoUser1-${Date.now()}@qamadness.com`,
-        password: 'Test1234',
-        apiKey: ''
+import * as fs from 'fs';
+import * as path from 'path';
+
+let cachedUsers: any = null;
+const usersFilePath = path.resolve(__dirname, 'generatedUsers.json');
+
+export function getTestUsers() {
+    if (!cachedUsers) {
+        if (!fs.existsSync(usersFilePath)) {
+            throw new Error('User data file not found: ' + usersFilePath);
+        }
+        const raw = fs.readFileSync(usersFilePath, 'utf-8');
+        cachedUsers = JSON.parse(raw);
     }
+    return cachedUsers;
 }

@@ -1,5 +1,7 @@
 import BasePage from '../../BasePage';
 import { UserData } from '../../../test-data/interfaces/user-data.interface';
+import * as fs from 'fs';
+import * as path from 'path';
 
 export default class ApplicationsSettingsPage extends BasePage {
     generateTokenButton = this.page.getByRole('button', { name: 'Generate Token' });
@@ -80,8 +82,15 @@ export default class ApplicationsSettingsPage extends BasePage {
         await this.clickGenerateTokenButton();
     }
 
-    async saveGeneratedTokenToUser(user: UserData) {
+    async saveGeneratedTokenToUser(user: UserData, userKey: string = 'randomUser1') {
         let token = await this.generatedToken.textContent();
         user.apiKey = token!;
+        const usersFilePath = path.resolve(__dirname, '../../../test-data/generatedUsers.json');
+        let usersData = {};
+        if (fs.existsSync(usersFilePath)) {
+            usersData = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+        }
+        usersData[userKey] = user;
+        fs.writeFileSync(usersFilePath, JSON.stringify(usersData, null, 2), 'utf-8');
     }
 }

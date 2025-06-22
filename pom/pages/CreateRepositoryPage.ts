@@ -2,16 +2,11 @@ import { Locator, Page, expect } from '@playwright/test';
 import BasePage from '../BasePage';
 
 export default class CreateRepositoryPage extends BasePage {
-    // private readonly ownerDropdown: Locator = this.page.locator('div.ui.selection.owner.dropdown');
     public readonly repoNameInput: Locator = this.page.locator('//input[@id="repo_name"]');
     public readonly visibilityCheckbox: Locator = this.page.locator('//input[@name="private"]');
     private readonly descriptionInput: Locator = this.page.locator('//textarea[@name="description"]');
-    // private readonly templateDropdown: Locator = this.page.locator('#repo_template_search');
     private readonly issueLabelDropdown: Locator = this.page.locator('//input[@name="issue_labels"]');
     private readonly gitignoreDropdown: Locator = this.page.locator('//input[@name="gitignores"]');
-    // private readonly licenseDropdown: Locator = this.page.locator('select[name="license"]');
-    // private readonly readmeSelect: Locator = this.page.locator('select[name="readme"]');
-    // private readonly initCheckbox: Locator = this.page.locator('input[name="auto_init"]');
     public readonly createRepoButton: Locator = this.page.locator('//button[contains(@class, "primary")]');
 
     async openPage() {
@@ -35,7 +30,6 @@ export default class CreateRepositoryPage extends BasePage {
 
     async selectIssueLabel(label: string) {
         await this.page.locator('//input[@name="issue_labels"]/..//input[@class="search"]').click();
-        // await this.issueLabelDropdown.click();
         await this.page.locator(`//*[@data-value="${label}"]//i`).click();
     }
 

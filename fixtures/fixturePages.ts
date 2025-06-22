@@ -3,7 +3,7 @@ import CreateRepositoryPage from '../pom/pages/CreateRepositoryPage';
 
 type Fixtures = {
     createRepoPage: CreateRepositoryPage;
-};
+};;
 
 export const test = base.extend<Fixtures>({
     createRepoPage: async ({ page }, use) => {
