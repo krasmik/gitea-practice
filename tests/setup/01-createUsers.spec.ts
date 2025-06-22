@@ -1,3 +1,6 @@
+// Generates test users and saves them to a file for use in all tests
+// Each user receives a unique apiKey after registration
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { expect, test } from '@playwright/test';

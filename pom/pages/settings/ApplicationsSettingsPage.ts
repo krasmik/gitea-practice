@@ -82,6 +82,8 @@ export default class ApplicationsSettingsPage extends BasePage {
         await this.clickGenerateTokenButton();
     }
 
+    // Saves apiKey (token) to the user object and the test users file
+    // Used to update user data after token generation
     async saveGeneratedTokenToUser(user: UserData, userKey: string = 'randomUser1') {
         let token = await this.generatedToken.textContent();
         user.apiKey = token!;

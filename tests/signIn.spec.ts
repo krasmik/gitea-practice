@@ -2,8 +2,10 @@ import { test, expect } from '@playwright/test';
 import SignInPage from '../pom/pages/SignInPage';
 import { getTestUsers } from '../test-data/testUsers';
 
+// Get the current test user for UI tests via getTestUsers()
+// testUser1 contains all credentials, including apiKey, generated during setup
 const users = getTestUsers();
-const testUser1 = users.randomUser1; // Для обратной совместимости
+const testUser1 = users.randomUser1; 
 
 
 test.describe(('Sign In tests'), () => {

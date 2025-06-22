@@ -2,6 +2,9 @@ import test, { expect } from "@playwright/test";
 import { getTestUsers } from '../../test-data/testUsers';
 import RepositoryService from "../../api/services/RepositoryService";
 
+// Get the current test user for API tests via getTestUsers()
+// testUser1 contains all credentials, including apiKey, generated during setup
+
 const users = getTestUsers();
 const testUser1 = users.randomUser1;
 
