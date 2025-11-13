@@ -1,4 +1,5 @@
+import { faker } from "@faker-js/faker";
+
 export function generateUniqueEmail(): string {
-    const timestamp = Date.now();
-    return `krasmik+${timestamp}@qamadness.com`;
+    return `krasmik+${faker.number.int()}@qamadness.com`;
 }

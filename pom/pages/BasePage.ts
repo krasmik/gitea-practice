@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export default class BasePage {
     page: Page;
@@ -11,5 +11,11 @@ export default class BasePage {
 
     async navigateTo() {
         await this.page.goto(this.url);
+    }
+
+    async validateEmptyErrorMessage(locator: Locator) {
+        await expect(locator).toHaveJSProperty('validity.valueMissing', true)
+        const message = await locator.evaluate(el => (el as HTMLInputElement).validationMessage);
+        expect(message).toMatch(/Please fill (in|out) this field\./);
     }
 }

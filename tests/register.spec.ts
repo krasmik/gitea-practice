@@ -29,18 +29,15 @@ test.describe('Register Page Tests', () => {
         const randomPassword = faker.internet.password({ length: 10 });
 
         await registerPage.register('', generateUniqueEmail(), randomPassword, randomPassword);
-        await expect(registerPage.userNameField).toHaveJSProperty('validity.valueMissing', true);
-        await expect(registerPage.userNameField).toHaveJSProperty('validationMessage', RegisterMessages.FIELD_EMPTY_MESSAGE);
+        await registerPage.validateEmptyErrorMessage(registerPage.userNameField);
         expect(registerPage.page.url()).toContain(registerPage.url);
-        // expect(page.url()).toContain(registerPage.url);
     });
 
     test('Email is empty', async () => {
         const randomPassword = faker.internet.password({ length: 10 });
 
         await registerPage.register(faker.internet.username(), '', randomPassword, randomPassword);
-        await expect(registerPage.emailField).toHaveJSProperty('validity.valueMissing', true);
-        await expect(registerPage.emailField).toHaveJSProperty('validationMessage', RegisterMessages.FIELD_EMPTY_MESSAGE);
+        await registerPage.validateEmptyErrorMessage(registerPage.emailField);
         expect(registerPage.page.url()).toContain(registerPage.url);
     });
 
@@ -55,8 +52,7 @@ test.describe('Register Page Tests', () => {
 
     test('Password is empty', async () => {
         await registerPage.register(faker.internet.username(), generateUniqueEmail(), '', '');
-        await expect(registerPage.passwordField).toHaveJSProperty('validity.valueMissing', true);
-        await expect(registerPage.passwordField).toHaveJSProperty('validationMessage', RegisterMessages.FIELD_EMPTY_MESSAGE);
+        await registerPage.validateEmptyErrorMessage(registerPage.passwordField);
         expect(registerPage.page.url()).toContain(registerPage.url);
     });
 
@@ -64,8 +60,7 @@ test.describe('Register Page Tests', () => {
         const randomPassword = faker.internet.password({ length: 10 });
 
         await registerPage.register(faker.internet.username(), generateUniqueEmail(), randomPassword, '');
-        await expect(registerPage.confirmPasswordField).toHaveJSProperty('validity.valueMissing', true);
-        await expect(registerPage.confirmPasswordField).toHaveJSProperty('validationMessage', RegisterMessages.FIELD_EMPTY_MESSAGE);
+        await registerPage.validateEmptyErrorMessage(registerPage.confirmPasswordField);
         expect(registerPage.page.url()).toContain(registerPage.url);
     });
 
