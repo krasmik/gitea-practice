@@ -20,7 +20,7 @@ test.describe('Register Page Tests', () => {
         const randomUserName = faker.internet.username();
         const randomPassword = faker.internet.password({ length: 10 });
 
-        await registerPage.register(randomUserName, generateUniqueEmail(), randomPassword, randomPassword);
+        // await registerPage.register(randomUserName, generateUniqueEmail(), randomPassword, randomPassword);
         await expect(dashboardPage.successRegistrationMessage).toBeVisible();
         await expect(dashboardPage.navBarUserName).toHaveText(randomUserName);
     });

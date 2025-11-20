@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="7.135251000000164">
+<testsuite name="multiple-tabs.spec.ts" timestamp="2025-11-17T14:06:30.808Z" hostname="e2e" tests="1" failures="0" skipped="0" time="5.123" errors="0">
+<testcase name="multiple tabs test" classname="multiple-tabs.spec.ts" time="5.123">
+</testcase>
+</testsuite>
+</testsuites>

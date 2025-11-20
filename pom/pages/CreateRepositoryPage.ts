@@ -1,4 +1,5 @@
 import BasePage from "./BasePage";
+import { step } from "../../util/decorators/step";
 
 export default class CreateRepositoryPage extends BasePage {
     public url: string = '/repo/create';
@@ -10,6 +11,7 @@ export default class CreateRepositoryPage extends BasePage {
     private defaultBranchField = this.page.locator('#default_branch');
     private createRepositoryButton = this.page.locator('button.primary', { hasText: 'Create Repository' });
 
+    @step('Create repository with name: {repoName}')
     async createRepository(repoName: string, options?: { description?: string; gitIgnore?: string; license?: string; isPrivate?: boolean; defaultBranch?: string }) {
         await this.repositoryNameField.fill(repoName);
         if (options?.description) {
