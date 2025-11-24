@@ -1,18 +1,6 @@
-<testsuites id="" name="" tests="7" failures="0" skipped="0" errors="0" time="5.1124270000001415">
-<testsuite name="app-fixture.spec.ts" timestamp="2025-11-20T13:49:04.014Z" hostname="e2e" tests="7" failures="0" skipped="0" time="2.94" errors="0">
-<testcase name="Register Page Tests › Successful register" classname="app-fixture.spec.ts" time="0.509">
-</testcase>
-<testcase name="Register Page Tests › Username is empty" classname="app-fixture.spec.ts" time="0.527">
-</testcase>
-<testcase name="Register Page Tests › Email is empty" classname="app-fixture.spec.ts" time="0.486">
-</testcase>
-<testcase name="Register Page Tests › Email is incorrect" classname="app-fixture.spec.ts" time="0.373">
-</testcase>
-<testcase name="Register Page Tests › Password is empty" classname="app-fixture.spec.ts" time="0.379">
-</testcase>
-<testcase name="Register Page Tests › Confirm Password is empty" classname="app-fixture.spec.ts" time="0.334">
-</testcase>
-<testcase name="Register Page Tests › Confirm Password is different" classname="app-fixture.spec.ts" time="0.332">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.593839000000007">
+<testsuite name="setup\save-userState.setup.ts" timestamp="2025-11-24T13:55:45.760Z" hostname="setup" tests="1" failures="0" skipped="0" time="0.487" errors="0">
+<testcase name="Register testUser1 and save storage state" classname="setup\save-userState.setup.ts" time="0.487">
 </testcase>
 </testsuite>
 </testsuites>

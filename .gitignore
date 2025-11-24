@@ -10,3 +10,5 @@ node_modules/
 allure-results/
 allure-report/
 results/
+.states
+test-data/users
