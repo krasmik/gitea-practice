@@ -17,7 +17,7 @@ import CreateRepositoryPage from '../pom/pages/CreateRepositoryPage';
 import SignInPage from '../pom/pages/SignInPage';
 import RepositoryPage from '../pom/pages/RepositoryPage';
 import RepositorySettingsPage from '../pom/pages/RepositorySettingsPage';
-import { generateUniqueEmail } from '../util/data-generation/email';
+import { generateUniqueEmail } from '../utils/data-generation/email';
 
 test.describe('Create Repository Tests', () => {
     let registerPage: RegisterPage;

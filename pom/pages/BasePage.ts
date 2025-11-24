@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from "@playwright/test";
-import { step } from "../../util/decorators/step";
+import { step } from "../../utils/decorators/step";
 
 export default class BasePage {
     page: Page;

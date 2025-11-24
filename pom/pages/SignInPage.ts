@@ -1,5 +1,5 @@
 import BasePage from './BasePage';
-import { step } from "../../util/decorators/step";
+import { step } from "../../utils/decorators/step";
 
 export default class SignInPage extends BasePage {
     public readonly url: string = '/user/login';

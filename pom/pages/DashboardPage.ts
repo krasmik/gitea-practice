@@ -1,5 +1,5 @@
 import BasePage from "./BasePage";
-import { step } from "../../util/decorators/step";
+import { step } from "../../utils/decorators/step";
 
 export default class DashboardPage extends BasePage {
     public url: string = '/';

@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 import RegisterPage from '../pom/pages/registerPage';
 import DashboardPage from '../pom/pages/DashboardPage';
 import { RegisterMessages } from '../test-data/messages/register-messages';
-import { generateUniqueEmail } from '../util/data-generation/email';
+import { generateUniqueEmail } from '../utils/data-generation/email';
 
 test.describe('Register Page Tests', () => {
     let registerPage: RegisterPage;

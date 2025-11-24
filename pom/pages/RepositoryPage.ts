@@ -1,5 +1,5 @@
 import BasePage from "./BasePage";
-import { step } from "../../util/decorators/step";
+import { step } from "../../utils/decorators/step";
 
 export default class RepositoryPage extends BasePage {
     public repositoryOwnerName = this.page.locator('.repo-header .flex-item-title a').first();

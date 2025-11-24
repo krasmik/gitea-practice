@@ -1,6 +1,6 @@
 import { Locator } from "@playwright/test";
 import BasePage from "./BasePage";
-import { step } from "../../util/decorators/step";
+import { step } from "../../utils/decorators/step";
 
 export default class RegisterPage extends BasePage {
     public url: string = '/user/sign_up';
