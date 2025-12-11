@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-
+require('dotenv').config();
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -22,21 +22,42 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['html', { open: 'never' }],
+    ['junit', {
+      outputFile: 'results/test-results.xml',
+      embedAnnotationsAsProperties: true,
+    }]
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: 'http://localhost:3000',
+    baseURL: process.env.BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
+    screenshot: 'on-first-failure',
+    video: 'retain-on-failure'
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'setup',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: '**setup/**.setup.ts',
+    },
+    {
       name: 'e2e',
       use: { ...devices['Desktop Chrome'] },
+      testMatch: 'tests/**.spec.ts',
+      dependencies: ['setup'],
+    },
+    {
+      name: 'api',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: 'api/**.spec.ts',
+      dependencies: ['setup'],
     },
 
     /* Test against mobile viewports. */
