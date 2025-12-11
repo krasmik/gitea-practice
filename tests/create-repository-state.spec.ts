@@ -1,10 +1,11 @@
 import { test, expect } from '../utils/fixtures/app';
 import { faker } from '@faker-js/faker';
-import testUser1Data from '../test-data/users/testUser1.json';
+import * as path from 'path';
+import testUser1Data from path.join(__dirname, '..', 'test-data', 'users', 'testUser1.json');
 
 test.describe('Create Repository Tests with fixture and storage state', () => {
 
-    test.use({ storageState: '.states/testUser1.json' });
+    test.use({ storageState: path.join(__dirname, '..', '.states', 'testUser1.json') });
 
     const testUserName = testUser1Data.userName;
 
