@@ -11,7 +11,7 @@
 
 import { test, expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
-import RegisterPage from '../pom/pages/registerPage';
+import RegisterPage from '../pom/pages/RegisterPage';
 import DashboardPage from '../pom/pages/DashboardPage';
 import CreateRepositoryPage from '../pom/pages/CreateRepositoryPage';
 import SignInPage from '../pom/pages/SignInPage';

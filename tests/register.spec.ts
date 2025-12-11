@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 
-import RegisterPage from '../pom/pages/registerPage';
+import RegisterPage from '../pom/pages/RegisterPage';
 import DashboardPage from '../pom/pages/DashboardPage';
 import { RegisterMessages } from '../test-data/messages/register-messages';
 import { generateUniqueEmail } from '../utils/data-generation/email';
