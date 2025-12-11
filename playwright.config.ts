@@ -50,6 +50,12 @@ export default defineConfig({
       testMatch: 'tests/**.spec.ts',
       dependencies: ['setup'],
     },
+    {
+      name: 'api',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: 'api/**.spec.ts',
+      dependencies: ['setup'],
+    },
 
     /* Test against mobile viewports. */
     // {

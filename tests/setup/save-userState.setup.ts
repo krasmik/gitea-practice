@@ -18,9 +18,23 @@ test('Register testUser1 and save storage state', async ({ app }) => {
     await expect(app.dashboardPage.navBarUserName).toHaveText(testUserName);
     await app.page.context().storageState({ path: '.states/testUser1.json' });
 
+    // TODO: Create POM classes and methods for the following steps
+    await app.page.locator('[aria-label="Profile and Settings…"]').click();
+    await app.page.locator('[href="/user/settings"]').click();
+    await app.page.locator('[href="/user/settings/applications"]').click();
+    await app.page.locator('#name').fill('API-auto-token');
+
+    const checkboxes = app.page.locator('[value*="write"]');
+    for (const checkbox of await checkboxes.all()) {
+        await checkbox.check();
+    }
+    await app.page.locator('button:has-text("Generate Token")').click();
+    const token = await app.page.locator('div.info.message p').innerText();
+
     saveUserData({
         userName: testUserName,
         userEmail: testUserEmail,
-        userPassword: testUserPassword
+        userPassword: testUserPassword,
+        userToken: token
     }, './test-data/users/testUser1.json');
 });

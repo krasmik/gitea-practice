@@ -1,6 +1,0 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="2.593839000000007">
-<testsuite name="setup\save-userState.setup.ts" timestamp="2025-11-24T13:55:45.760Z" hostname="setup" tests="1" failures="0" skipped="0" time="0.487" errors="0">
-<testcase name="Register testUser1 and save storage state" classname="setup\save-userState.setup.ts" time="0.487">
-</testcase>
-</testsuite>
-</testsuites>
