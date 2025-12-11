@@ -1,5 +1,6 @@
 import test, { expect } from "@playwright/test";
-import testUser1Data from '../../test-data/users/testUser1.json';
+import * as path from 'path';
+import testUser1Data from path.join(__dirname, '..', '..', 'test-data', 'users', 'testUser1.json');
 import { faker } from "@faker-js/faker";
 import RepositoryService from "../../api/services/RepositoryService";
 
