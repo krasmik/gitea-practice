@@ -1,12 +1,15 @@
 import test, { expect } from "@playwright/test";
-import * as path from 'path';
 import { faker } from "@faker-js/faker";
 import RepositoryService from "../../api/services/RepositoryService";
 
-const testUser1Data = require(path.join(__dirname, '..', '..', 'test-data', 'users', 'testUser1.json'));
+let testUser1Data: any;
 
 test.describe('Repository API Tests', () => {
     let repositoryService: RepositoryService;
+
+    test.beforeAll(() => {
+        testUser1Data = require('../../test-data/users/testUser1.json');
+    });
 
     test.beforeEach(async ({ request }) => {
         repositoryService = new RepositoryService(request);

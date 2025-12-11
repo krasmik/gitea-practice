@@ -17,7 +17,7 @@ test('Register testUser1 and save storage state', async ({ app }) => {
         testUserPassword
     );
     await expect(app.dashboardPage.navBarUserName).toHaveText(testUserName);
-    await app.page.context().storageState({ path: path.join(__dirname, '..', '..', '.states', 'testUser1.json') });
+    await app.page.context().storageState({ path: path.resolve(__dirname, '../../.states/testUser1.json') });
 
     // TODO: Create POM classes and methods for the following steps
     await app.page.locator('[aria-label="Profile and Settings…"]').click();
@@ -37,5 +37,5 @@ test('Register testUser1 and save storage state', async ({ app }) => {
         userEmail: testUserEmail,
         userPassword: testUserPassword,
         userToken: token
-    }, path.join(__dirname, '..', '..', 'test-data', 'users', 'testUser1.json'));
+    }, path.resolve(__dirname, '../../test-data/users/testUser1.json'));
 });
