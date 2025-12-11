@@ -1,8 +1,9 @@
 import test, { expect } from "@playwright/test";
 import * as path from 'path';
-import testUser1Data from path.join(__dirname, '..', '..', 'test-data', 'users', 'testUser1.json');
 import { faker } from "@faker-js/faker";
 import RepositoryService from "../../api/services/RepositoryService";
+
+const testUser1Data = require(path.join(__dirname, '..', '..', 'test-data', 'users', 'testUser1.json'));
 
 test.describe('Repository API Tests', () => {
     let repositoryService: RepositoryService;
